@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* roboto font link */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@layer components {
+  .hover-underline {
+    @apply relative;
+  }
+
+  .hover-underline::after {
+    content: '';
+    @apply absolute left-0 right-0 bg-gradient-to-r from-cyan-500 to-blue-500;
+    bottom: -5px; /* Adjust this value to move the underline further down */
+    height: 2px; /* Adjust the thickness of the underline */
+    width: 0;
+    transition: width 1s ease-in-out; /* Smooth transition */
+  }
+
+  .hover-underline:hover::after {
+    width: 100%; /* Set width to full on hover */
+  }
+}
