@@ -64,10 +64,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='navbar-end items-center gap-8'>
-          <div className='flex items-center gap-2'>
-            <h1 className='text-lg font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent'>Resume</h1>
+          <div className='group border rounded-xl px-8 py-3 bg-gray-200 flex items-center gap-2'>
+            <h1 className='text-lg hover:animate-pulse font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent'>Resume</h1>
             <span className='text-lg text-gradient-to-r from-cyan-500 to-blue-500'>
-              <FaArrowRight />
+              <FaArrowRight className="font-bold group-hover:animate-bounce text-xl text-blue-400" />
             </span>
           </div>
           <div>

@@ -19,6 +19,7 @@ export default {
         animation: {
           underline: 'underline 1s ease-in-out forwards',
         },
+        
       },
   },
   plugins: [
