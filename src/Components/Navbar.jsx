@@ -34,8 +34,8 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className={`navbar lg:px-12 mx-auto shadow-md max-w-8xl py-4 w-full `}>
-        <div className="navbar-start">
+      <div className={`navbar lg:px-12 mx-auto shadow-lg max-w-8xl py-6 w-full fixed top-0 z-[999] h-[80px] ${theme === 'light' ? 'bg-white' : 'bg-gray-900 '} ${theme === 'light' ? 'text-black' : 'text-white'} `}>
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden" onClick={toggleMenu}>
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>

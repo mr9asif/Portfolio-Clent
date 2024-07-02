@@ -15,7 +15,7 @@ const Banner = () => {
      const {theme}=useContext(AuthContext);
      console.log(theme)
     return (
-        <div className={`max-w-8xl mx-auto px-24 my-4    py-8   p-5 rounded-lg lg:flex   justify-between items-center gap-20`}>
+        <div className={`max-w-8xl mx-auto px-24 my-4 pt-32   py-8   p-5 rounded-lg lg:flex   justify-between items-center gap-20`}>
              
         
         

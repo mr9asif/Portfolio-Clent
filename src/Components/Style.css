@@ -22,4 +22,13 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
+
+  .grayscale-img {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease-out;
+  }
+  
+  .grayscale-img:hover {
+    filter: none;
+  }
   

@@ -25,3 +25,13 @@
     width: 100%; /* Set width to full on hover */
   }
 }
+
+.grayscale-img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease-out;
+}
+
+.grayscale-img:hover {
+  filter: none;
+}
+
