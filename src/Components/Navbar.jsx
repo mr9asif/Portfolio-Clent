@@ -48,26 +48,33 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
-              Asif Ali
+            <h1 className={`text-4xl font-semibold ${theme === "light" ? "text-green-600" : "text-white"}`}>
+              Asif <span className='text-custom-green'>.</span>
             </h1>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex justify-between lg:gap-6">
-            <ScrollLink to="skills" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-blue-600 text-xl font-bold": "text-white text-xl font-bold"} hover:bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-clip-text hover:text-transparent hover-underline text-[18px]" activeClass="font-extrabold  `}>Skills</ScrollLink>
-            <ScrollLink to="projects" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-blue-600 text-xl font-bold": "text-white text-xl font-bold"} hover:bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-clip-text hover:text-transparent hover-underline text-[18px]" activeClass="font-extrabold `}>Projects</ScrollLink>
-            <ScrollLink to="works" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-blue-600 text-xl font-bold": "text-white text-xl font-bold"} hover:bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-clip-text hover:text-transparent hover-underline text-[18px]" activeClass="font-extrabold  `}>Works</ScrollLink>
-            <ScrollLink to="testimonials" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-blue-600 text-xl font-bold": "text-white text-xl font-bold"} hover:bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-clip-text hover:text-transparent hover-underline text-[18px]" activeClass="font-extrabold `}>Testimonials</ScrollLink>
-            <ScrollLink to="contact" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-blue-600 text-xl font-bold": "text-white text-xl font-bold"} \ hover-underline text-[18px]" activeClass="font-extrabold  `}>Contact</ScrollLink>
+            <ScrollLink to="skills" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"}  hover-underline hover:text-custom-green cursor-pointer text-[18px]" activeClass="font-extrabold  `}>Skills</ScrollLink>
+            <ScrollLink to="projects" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-green-600 cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold `}>Projects</ScrollLink>
+            <ScrollLink to="works" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold  `}>Works</ScrollLink>
+            <ScrollLink to="testimonials" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"}  hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold `}>Testimonials</ScrollLink>
+            <ScrollLink to="contact" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold  `}>Contact</ScrollLink>
         
           </ul>
         </div>
         <div className='navbar-end items-center gap-8'>
-          <div className='group border rounded-xl px-8 py-3 bg-gray-200 flex items-center gap-2'>
-            <h1 className='text-lg hover:animate-pulse font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent'>Resume</h1>
+          <div className={`cursor-pointer group border rounded-xl px-8 py-3 ${theme === 'light' ? 'bg-green-500 ' : 'bg-gray-300'} flex items-center gap-2`}>
+          <a
+          href='https://www.linkedin.com/in/mr9asif'
+          target='_blank'
+          className={`text-lg hover:animate-pulse font-bold ${theme === 'light' ? 'text-white' : 'text-black'}`}
+        >
+          Hire me
+        </a>
+        
             <span className='text-lg text-gradient-to-r from-cyan-500 to-blue-500'>
-              <FaArrowRight className="font-bold group-hover:animate-bounce text-xl text-blue-400" />
+              <FaArrowRight className={`font-bold group-hover:animate-bounce text-xl ${theme === 'light' ? 'text-white ' : 'text-black'}`} />
             </span>
           </div>
           <div>
