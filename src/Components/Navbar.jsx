@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
+import { Link, Link as ScrollLink } from 'react-scroll';
 import { FaArrowRight } from "react-icons/fa";
 import { AuthContext,  } from './AuthContext/AuthContex';
-
+import './Style.css'
 
 
 const Navbar = () => {
@@ -41,11 +41,13 @@ const Navbar = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </div>
             <ul className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box ${isOpen ? 'block lg:w-52' : 'hidden lg:block'}`}>
-              <ScrollLink to="home" smooth={true} duration={500} className="text-xl font-bold hover-underline">Home</ScrollLink>
-              <ScrollLink to="skills" smooth={true} duration={500} className="text-xl font-bold hover-underline">Skills</ScrollLink>
+              <ScrollLink to="skills" containerId='skills' smooth={true} duration={500} className="text-xl font-bold hover-underline">Skills</ScrollLink>
+              <ScrollLink to="" smooth={true} duration={500} className="text-xl font-bold hover-underline">Skills</ScrollLink>
               <ScrollLink to="projects" smooth={true} duration={500} className="text-xl font-bold hover-underline">Projects</ScrollLink>
               <ScrollLink to="contact" smooth={true} duration={500} className="text-xl font-bold hover-underline">Contact</ScrollLink>
-            </ul>
+            
+            
+              </ul>
           </div>
           <div className="flex items-center gap-2">
             <h1 className={`text-4xl font-semibold ${theme === "light" ? "text-green-600" : "text-white"}`}>
@@ -55,12 +57,12 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex justify-between lg:gap-6">
-            <ScrollLink to="skills" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"}  hover-underline hover:text-custom-green cursor-pointer text-[18px]" activeClass="font-extrabold  `}>Skills</ScrollLink>
-            <ScrollLink to="projects" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-green-600 cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold `}>Projects</ScrollLink>
+            <Link to="skills" activeClass="active"  offset={-78}  smooth={true} duration={500} className={`font-bold  nav-link ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"}  hover-underline hover:text-custom-green cursor-pointer text-[18px]" activeClass="font-extrabold  `}>Skills</Link>
+            <ScrollLink to="projects" smooth={true} offset={-78} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-green-600 cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold `}>Projects</ScrollLink>
             <ScrollLink to="works" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold  `}>Works</ScrollLink>
             <ScrollLink to="testimonials" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"}  hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold `}>Testimonials</ScrollLink>
             <ScrollLink to="contact" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold  `}>Contact</ScrollLink>
-        
+           
           </ul>
         </div>
         <div className='navbar-end items-center gap-8'>

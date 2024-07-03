@@ -32,3 +32,10 @@
     filter: none;
   }
   
+  .active::hover{
+    text-decoration: underline;
+  }
+  
+
+  
+  

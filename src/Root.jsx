@@ -4,6 +4,8 @@ import Banner from './Components/Banner';
 import Achivement from './Components/Achivement';
 import MySkill from './Components/Skill/MySkill';
 
+import Projects from './Components/projects/Projects';
+
 
 
 const Root = () => {
@@ -13,6 +15,8 @@ const Root = () => {
             <Banner></Banner>
             <Achivement></Achivement>
             <MySkill></MySkill>
+          
+          
         </div>
     );
 };
