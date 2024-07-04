@@ -5,6 +5,7 @@ import Achivement from './Components/Achivement';
 import MySkill from './Components/Skill/MySkill';
 
 import Projects from './Components/projects/Projects';
+import About from './Components/About/About';
 
 
 
@@ -15,6 +16,7 @@ const Root = () => {
             <Banner></Banner>
             <Achivement></Achivement>
             <MySkill></MySkill>
+            
           
           
         </div>

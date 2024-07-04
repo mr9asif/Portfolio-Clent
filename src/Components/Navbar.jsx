@@ -32,6 +32,12 @@ const Navbar = () => {
     }
   };
 
+
+  const [activeLink, setActiveLink] = useState('');
+
+  const handleSetActive = (to) => {
+    setActiveLink(to);
+  };
   return (
     <div>
       <div className={`navbar lg:px-12 mx-auto shadow-lg max-w-8xl py-6 w-full fixed top-0 z-[999] h-[80px] ${theme === 'light' ? 'bg-white' : 'bg-gray-900 '} ${theme === 'light' ? 'text-black' : 'text-white'} `}>
@@ -42,8 +48,8 @@ const Navbar = () => {
             </div>
             <ul className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box ${isOpen ? 'block lg:w-52' : 'hidden lg:block'}`}>
               <ScrollLink to="skills" containerId='skills' smooth={true} duration={500} className="text-xl font-bold hover-underline">Skills</ScrollLink>
-              <ScrollLink to="" smooth={true} duration={500} className="text-xl font-bold hover-underline">Skills</ScrollLink>
               <ScrollLink to="projects" smooth={true} duration={500} className="text-xl font-bold hover-underline">Projects</ScrollLink>
+              <ScrollLink to="about" smooth={true} duration={500} className="text-xl font-bold hover-underline">About Me</ScrollLink>
               <ScrollLink to="contact" smooth={true} duration={500} className="text-xl font-bold hover-underline">Contact</ScrollLink>
             
             
@@ -59,8 +65,8 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 flex justify-between lg:gap-6">
             <Link to="skills" activeClass="active"  offset={-78}  smooth={true} duration={500} className={`font-bold  nav-link ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"}  hover-underline hover:text-custom-green cursor-pointer text-[18px]" activeClass="font-extrabold  `}>Skills</Link>
             <ScrollLink to="projects" smooth={true} offset={-78} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-green-600 cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold `}>Projects</ScrollLink>
-            <ScrollLink to="works" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold  `}>Works</ScrollLink>
-            <ScrollLink to="testimonials" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"}  hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold `}>Testimonials</ScrollLink>
+            <ScrollLink to="about" offset={-78}  smooth={true} duration={500}  onSetActive={handleSetActive} className={`font-bold ${activeLink === 'education' ? 'active' : ''}  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold  `}>About Me</ScrollLink>
+            
             <ScrollLink to="contact" smooth={true} duration={500} className={`font-bold  ${theme === 'light' ? "text-black text-xl font-bold": "text-white text-xl font-bold"} hover:text-custom-green cursor-pointer hover-underline text-[18px]" activeClass="font-extrabold  `}>Contact</ScrollLink>
            
           </ul>

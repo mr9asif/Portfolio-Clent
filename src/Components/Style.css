@@ -37,5 +37,38 @@
   }
   
 
-  
+  /* Tailwind CSS for underline effect */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+ 
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: start;
+}
+.vertical-timeline::before {
+  /* this is the vertical line */
+
+  background: black !important;
+}
+
+.empty {
+  height: 600px;
+  border: 1px solid red;
+}
   

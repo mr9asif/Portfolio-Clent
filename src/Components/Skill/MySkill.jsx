@@ -1,9 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../AuthContext/AuthContex';
 
 import { Tilt } from 'react-tilt'
 import { Element } from 'react-scroll';
-import { FaGithub, FaLink } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaGlassMartiniAlt, FaLink, FaLinkedin, FaMapMarkerAlt, FaNetworkWired, FaVoicemail } from 'react-icons/fa';
+
+import {
+   VerticalTimeline,
+   VerticalTimelineElement
+ } from "react-vertical-timeline-component";
+ import "react-vertical-timeline-component/style.min.css";
+
+ import '../Style.css'
+import { CgMail } from 'react-icons/cg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { MdAddCall } from 'react-icons/md';
 const MySkill = () => {
     const {theme}=useContext(AuthContext)
 
@@ -18,8 +30,39 @@ const defaultOptions = {
 	reset:          true,    // If the tilt effect has to be reset on exit.
 	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
 }
+
+
+const [name, setName] = useState('');
+const [email, setEmail] = useState('');
+const [message, setMessage] = useState('');
+const [errors, setErrors] = useState({});
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  // Basic validation
+  const newErrors = {};
+  if (!name) newErrors.name = 'Name is required';
+  if (!email) newErrors.email = 'Email is required';
+  else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Email is invalid';
+  if (!message) newErrors.message = 'Message is required';
+
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+  } else {
+    setErrors({});
+    // Handle form submission (e.g., send data to a server)
+    console.log('Form submitted:', { name, email, message });
+    toast.success('Your Message submitted successfully!');
+    setName('');
+    setEmail('');
+    setMessage('');
+  }
+};
+
     return (
         <Element  style={{ height: '100vh' }} className=''>
+        {/*My skill*/}
         <div  id='skills' className=' z-10 section'>
             <h1 className={`text-center text-5xl font-bold ${theme === 'light' ? 'text-green-500 ' : 'text-white'}`}>My Skills</h1>
              <p className={`text-xl text-center my-4 font-semibold text-gray-300 ${theme === 'light' ? 'text-gray-700' : "text-gray-100"}`}>Creating Stunning Websites with My Technical Skills and Expertise</p>
@@ -198,6 +241,10 @@ const defaultOptions = {
               
               </div>
              </div>
+            
+
+            {/* ------------projects--------------------------------------*/}
+
 
              <section id='projects' className='my-16'>
              <div className='mt-28'>
@@ -236,10 +283,10 @@ const defaultOptions = {
 
                 <div className={`flex items-start justify-start my-8  gap-7 font-extrabold text-2xl px-12`}>
                  <a href='https://steady-baklava-3119cd.netlify.app/' target='_blank' className={`${theme === 'light' ? 'bg-green-700 ' : 'bg-gray-300'} ${theme === 'light' ? 'text-white ' : 'bg-gray-600'} px-6 py-2 hover:border-green-400 hover:bg-gray-400 hover:text-white rounded-xl cursor-pointer flex items-center gap-2   hover:animate-bounce`}>Live Link
-                    <FaLink className={` ${theme === 'light' ? 'text-white ' : 'bg-gray-900'}`}></FaLink>
+                    <FaLink className={` ${theme === 'light' ? 'text-white ' : 'text-gray-900'}`}></FaLink>
                  </a>
                  <a href='https://github.com/mr9asif/Traveler-Website' target='_blank' className={`${theme === 'light' ? 'bg-green-700 ' : 'bg-gray-300'} ${theme === 'light' ? 'text-white ' : 'bg-gray-600'} px-6 py-2 hover:border-green-400 hover:bg-gray-400 hover:text-white rounded-xl cursor-pointer flex items-center gap-2   hover:animate-bounce`}>Github Repo
-                    <FaGithub className={` ${theme === 'light' ? 'text-white ' : 'bg-gray-900'}`}></FaGithub>
+                    <FaGithub className={` ${theme === 'light' ? 'text-white ' : 'text-gray-900'}`}></FaGithub>
                  </a>
                 
                 
@@ -279,10 +326,10 @@ const defaultOptions = {
 
                 <div className={`flex items-start justify-start my-8  gap-7 font-extrabold text-2xl px-12`}>
                  <a href='https://relaxed-strudel-f0e9a5.netlify.app/' target='_blank' className={`${theme === 'light' ? 'bg-green-700 ' : 'bg-gray-300'} ${theme === 'light' ? 'text-white ' : 'bg-gray-600'} px-6 py-2 hover:border-green-400 hover:bg-gray-400 hover:text-white rounded-xl cursor-pointer flex items-center gap-2   hover:animate-bounce`}>Live Link
-                    <FaLink className={` ${theme === 'light' ? 'text-white ' : 'bg-gray-900'}`}></FaLink>
+                    <FaLink className={` ${theme === 'light' ? 'text-white ' : 'text-gray-900'}`}></FaLink>
                  </a>
                  <a href='https://github.com/mr9asif/Assignment-11' target='_blank' className={`${theme === 'light' ? 'bg-green-700 ' : 'bg-gray-300'} ${theme === 'light' ? 'text-white ' : 'bg-gray-600'} px-6 py-2 hover:border-green-400 hover:bg-gray-400 hover:text-white rounded-xl cursor-pointer flex items-center gap-2   hover:animate-bounce`}>Github Repo
-                    <FaGithub className={` ${theme === 'light' ? 'text-white ' : 'bg-gray-900'}`}></FaGithub>
+                    <FaGithub className={` ${theme === 'light' ? 'text-white ' : 'text-gray-900'}`}></FaGithub>
                  </a>
                 
                 
@@ -323,10 +370,10 @@ const defaultOptions = {
 
                 <div className={`flex items-start justify-start my-8  gap-7 font-extrabold text-2xl px-12`}>
                  <a  href='https://thunderous-brioche-852547.netlify.app/' target='_blank' className={`${theme === 'light' ? 'bg-green-700 ' : 'bg-gray-300'} ${theme === 'light' ? 'text-white ' : 'bg-gray-600'} px-6 py-2 hover:border-green-400 hover:bg-gray-400 hover:text-white rounded-xl cursor-pointer flex items-center gap-2   hover:animate-bounce`}>Live Link
-                    <FaLink className={` ${theme === 'light' ? 'text-white ' : 'bg-gray-900'}`}></FaLink>
+                    <FaLink className={` ${theme === 'light' ? 'text-white ' : 'text-gray-900'}`}></FaLink>
                  </a>
                  <a href='https://github.com/mr9asif/Employee-Management' target='_blank' className={`${theme === 'light' ? 'bg-green-700 ' : 'bg-gray-300'} ${theme === 'light' ? 'text-white ' : 'bg-gray-600'} px-6 py-2 hover:border-green-400 hover:bg-gray-400 hover:text-white rounded-xl cursor-pointer flex items-center gap-2   hover:animate-bounce`}>Github Repo
-                    <FaGithub className={` ${theme === 'light' ? 'text-white ' : 'bg-gray-900'}`}></FaGithub>
+                    <FaGithub className={` ${theme === 'light' ? 'text-white ' : 'text-gray-900'}`}></FaGithub>
                  </a>
                 
                 
@@ -334,6 +381,195 @@ const defaultOptions = {
                 </div>
              </div>
              </section>
+
+
+                         {/* ------------education--------------------------------------*/}
+
+                         <section id='about'>
+                         <div className='mt-28'>
+                         <h1 className={`text-center text-5xl mb-2 font-bold ${theme === 'light' ? 'text-green-500 ' : 'text-white'}`}>Education & Courses</h1>
+                         <p className={`text-xl text-center my-4 font-semibold text-gray-300 ${theme === 'light' ? 'text-gray-700' : "text-gray-100"}`}>I am a Student of Computer Science</p>
+                         </div>
+
+                        <div className='flex items-center justify-center gap-5'>
+                        <div className="App">
+                        <VerticalTimeline layout="1-column-left">
+                        <VerticalTimelineElement
+                        className="vertical-timeline-element--work font-bold"
+                      
+                        contentArrowStyle={{ borderRight: theme === 'light' ? '7px solid #68D391' : '7px solid #fff' }}
+                        date="2020 - 2022"
+                        iconStyle={{ background: theme === 'light' ? '#68D391' : 'white', color:theme === 'light' ? '#fff' : '#000000', }}
+                        icon={<FaNetworkWired />}
+                      >
+                            <div className='flex flex-col items-start justify-start gap-2'>
+                            <h3 className="vertical-timeline-element-title text-2xl font-bold">Higher School Certificate</h3>
+                            <h4 className="vertical-timeline-element-subtitle font-semibold text-[14px]">Boropukur Nekmord High School</h4>
+                            <p className="vertical-timeline-element-subtitle font-bold">GPA: 5.00</p>
+                           
+                            </div>
+                          </VerticalTimelineElement>
+                          
+                          
+                        <VerticalTimelineElement
+                        className="vertical-timeline-element--work"
+                      
+                        contentArrowStyle={{ borderRight: theme === 'light' ? '7px solid #68D391' : '7px solid #fff' }}
+                        date="2023 - present"
+                        iconStyle={{ background: theme === 'light' ? '#68D391' : 'white', color:theme === 'light' ? '#fff' : '#000000', }}
+                        icon={<FaNetworkWired />}
+                      >
+                            <div className='flex flex-col items-start justify-start gap-2'>
+                            <h3 className="vertical-timeline-element-title text-2xl font-bold">Diploma In Computer Science</h3>
+                            <h4 className="vertical-timeline-element-subtitle font-semibold text-[14px]">Dinajpur polytechnic Institute</h4>
+                            
+                           
+                            </div>
+                          </VerticalTimelineElement>
+                          
+                          
+                          
+                           
+                        
+                          
+                        </VerticalTimeline>
+                      </div>
+                       <div>
+                       <div className="App">
+                       <VerticalTimeline layout="1-column-left">
+                       <VerticalTimelineElement
+                       className="vertical-timeline-element--work font-bold"
+                     
+                       contentArrowStyle={{ borderRight: theme === 'light' ? '7px solid #68D391' : '7px solid #fff' }}
+                       date="December 2023 - June 2024"
+                       iconStyle={{ background: theme === 'light' ? '#68D391' : 'white', color:theme === 'light' ? '#fff' : '#000000', }}
+                       icon={<FaNetworkWired />}
+                     >
+                           <div className='flex flex-col items-start justify-start gap-2'>
+                           <h3 className="vertical-timeline-element-title text-2xl font-bold">Complete Web Developement Course</h3>
+                           <h4 className="vertical-timeline-element-subtitle font-semibold text-[14px]">Programming Hero</h4>
+                           
+                          
+                           </div>
+                         </VerticalTimelineElement>
+                         
+                         
+                     
+                         
+                         
+                          
+                       
+                         
+                       </VerticalTimeline>
+                     </div>
+                       </div>
+                        </div>
+                        
+                         </section>
+
+                           {/* ------------Contact--------------------------------------*/}
+                           <section id='contact' className='max-w-8xl mx-auto '>
+                           <ToastContainer />
+                             <div>
+                             <div className='mt-28 mb-12'>
+                             <h1 className={`text-center text-5xl mb-2 font-bold ${theme === 'light' ? 'text-green-500 ' : 'text-white'}`}>Contact</h1>
+                             <p className={`text-xl text-center my-4 font-semibold text-gray-300 ${theme === 'light' ? 'text-gray-700' : "text-gray-100"}`}>You can contact with me via this platform</p>
+                             </div>
+
+                             <div className='flex items-center justify-center gap-7'>
+                                 <div className='w-1/2'>
+                                 <form onSubmit={handleSubmit} className=" mx-auto p-4 bg-white shadow-md rounded-lg">
+                                 <div className="mb-4">
+                                   <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
+                                   <input
+                                     type="text"
+                                     id="name"
+                                     value={name}
+                                     onChange={(e) => setName(e.target.value)}
+                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                                   />
+                                   {errors.name && <span className="text-red-500 text-sm">{errors.name}</span>}
+                                 </div>
+                                 <div className="mb-4">
+                                   <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
+                                   <input
+                                     type="email"
+                                     id="email"
+                                     value={email}
+                                     onChange={(e) => setEmail(e.target.value)}
+                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                                   />
+                                   {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
+                                 </div>
+                                 <div className="mb-4">
+                                   <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Message</label>
+                                   <textarea
+                                     id="message"
+                                     value={message}
+                                     onChange={(e) => setMessage(e.target.value)}
+                                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+                                   />
+                                   {errors.message && <span className="text-red-500 text-sm">{errors.message}</span>}
+                                 </div>
+                                 <button
+                                   type="submit"
+                                   className="w-full bg-green-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring focus:border-blue-300"
+                                 >
+                                   Submit
+                                 </button>
+                               </form>
+                                 </div>
+
+                                 <div className='w-[45%] flex flex-col justify-start items-start gap-3'>
+                                    <p className='text-xl font-semibold text-start mb-4'>Looking to start a new project? I'm here to help! Contact me anytime, day or night, and let's discuss your ideas</p>
+                                 
+                                 <h1 className='flex items-center gap-2 font-bold text-xl hover:text-green-400 hover:animate-pulse cursor-pointer  hover:border p-3 hover:rounded-xl'>
+                                   <CgMail />
+                                   asifalibd002@gmail.com
+                                 </h1>
+                                 <h1 className='flex items-center gap-2 font-bold text-xl hover:text-green-400 hover:animate-pulse cursor-pointer  hover:border p-3 hover:rounded-xl'>
+                                   <MdAddCall />
+                                  +8801792952161
+                                 </h1>
+                                 <h1 className='flex items-center gap-2 font-bold text-xl hover:text-green-400 hover:animate-pulse cursor-pointer  hover:border p-3 hover:rounded-xl'>
+                                   < FaMapMarkerAlt/>
+                                   Dinajpur,Bangladesh
+                                 </h1>
+
+                                 <div className='flex items-start gap-3'>
+                                 <div className="border-green-500 border-2 ring-1 hover:text-white  text-green-500 rounded-[50%] p-3  hover:bg-green-500 dark:ring-white hover:animate-pulse">
+                                 <a target="_blank"   href="">
+                                 <FaFacebook className="text-xl  " />
+                                 </a>
+                                 </div>
+
+                                 <div className="border-green-600 border-2 ring-1 hover:text-white  text-green-500 rounded-[50%] p-3  hover:bg-green-500 dark:ring-white hover:animate-pulse">
+                                 <a target="_blank" className="group-hover:rotate-[360deg]" href="https://www.linkedin.com/in/mr9asif/">
+                                 <FaLinkedin className="text-xl  " />
+                                 </a>
+                                 </div>
+                                 <div className={`border-green-600 border-2 ring-1 hover:text-white  text-green-600 rounded-[50%] p-3  hover:bg-green-500 dark:ring-white hover:animate-pulse`}>
+                                 <a target="_blank"   href="">
+                                 <FaGithub className="text-xl  " />
+                                 </a>
+                                 </div>
+                                 </div>
+
+
+                                 
+                                 
+                              </div>
+                             </div>
+                            
+                             </div>
+                           </section>
+                              
+                             {/* ------------Footer--------------------------------------*/}
+                             <footer className={`py-8 ${theme === 'light' ? "bg-gray-300" : "bg-gray-600"} ${theme === "light"? "text-gray-700" : "text-white"} w-full mt-8`}>
+                                <h1 className={` ${theme === "light"? "text-green-600" : "text-white"} text-center text-xl font-bold`}>Asif ALi</h1>
+                                <p className='text-center text-[13px] font-semibold'>© 2024 All rights reserved by Md. Asif Ali.</p>
+                             </footer>
+
              </Element>
 
              
