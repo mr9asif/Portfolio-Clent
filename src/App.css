@@ -42,3 +42,15 @@
 }
 
 
+.particles {
+  position: relative; /* Ensure the parent has a stacking context */
+  width: 100%;
+  height: 100%;
+}
+
+.particles canvas {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

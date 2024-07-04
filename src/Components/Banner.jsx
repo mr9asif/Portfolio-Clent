@@ -5,19 +5,39 @@ import { GoArrowDownRight, GoArrowUpRight } from "react-icons/go";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoMdCloudDownload } from "react-icons/io";
 import { MdOutlineFileDownload } from "react-icons/md";
+import { Tilt } from "react-tilt";
+import { downloadTextFile } from "./DownloadTextFile";
 
+const defaultOptions = {
+	reverse:        false,  // reverse the tilt direction
+	max:            35,     // max tilt rotation (degrees)
+	perspective:    1000,   // Transform perspective, the lower the more extreme the tilt gets.
+	scale:          1.1,    // 2 = 200%, 1.5 = 150%, etc..
+	speed:          1000,   // Speed of the enter/exit transition
+	transition:     true,   // Set a transition on enter/exit.
+	axis:           null,   // What axis should be disabled. Can be X or Y.
+	reset:          true,    // If the tilt effect has to be reset on exit.
+	easing:         "cubic-bezier(.03,.98,.52,.99)",    // Easing on enter/exit.
+}
 
-
-
+const handleDownload = () => {
+  const filename = 'example.txt';
+  const content = 'The Resume is Coming....';
+  downloadTextFile(filename, content);
+};
 
 
 const Banner = () => {
      const {theme}=useContext(AuthContext);
      console.log(theme)
     return (
-        <div className={`max-w-8xl mx-auto px-24 my-4 pt-32   py-8   p-5 rounded-lg lg:flex   justify-between items-center gap-20`}>
+        <div className={`w-[98%]  lg:max-w-8xl mx-auto lg:px-24 my-8  pt-32   py-8   p-5 rounded-lg md:flex lg:flex   justify-between items-center  lg:gap-20`}>
              
-        
+        <Tilt className="cursor-pointer" options={defaultOptions}>
+        <div  className="  p-2">
+        <img  className={` md:w-[40%] lg:w-[800px] p-1 border-4 ${theme === 'light' ? 'border-green-600 ' : 'border-white'}  rounded-4xl lg:rounded-[50%] lg:h-[280px] `} src="https://i.postimg.cc/TPbJXW6V/Remove-background-project.png" alt="" />
+       </div>
+        </Tilt>
         
        
          
@@ -47,12 +67,12 @@ const Banner = () => {
     
 
 
-         <p className={`font-medium text-xl ${theme === 'light' ? 'text-gray-600' : "text-gray-100"}`}>A versatile developer with expertise in web design, front-end development, and full-stack development using the MERN stack. I am passionate about creating responsive and user-friendly web applications using React.js. With a keen eye for design and a focus on improved user experience, I excel at turning complex problems into simple, beautiful, and intuitive solutions.</p>
+         <p className={`font-medium text-xl ${theme === 'light' ? 'text-gray-600' : "text-gray-100"}`}>As a multifaceted developer, I specialize in web design, front-end programming, and full-stack development using the MERN stack. I am enthusiastic about building responsive and user-centric web applications with React.js. With a sharp eye for aesthetics and a dedication to enhancing user interaction, I excel in converting intricate issues into streamlined, visually appealing, and user-friendly solutions.</p>
     </div>
   
     <div className="flex justify-start items-center gap-5">
-        <div  className={`flex cursor-pointer items- hover:animate-pulse ${theme === 'light' ? "bg-green-500" : "bg-gray-200"} gap-2 px-4 py-2 border w-[190px] group rounded-2xl`}>
-        <button className={`hover:animate-pulse font-semibold  ${theme === 'light' ? 'text-white' : 'text-green-500'} `}>Download Resume</button>
+        <div  onClick={handleDownload}  className={`flex cursor-pointer items- hover:animate-pulse ${theme === 'light' ? "bg-green-500" : "bg-gray-200"} gap-2 px-4 py-2 border w-[190px] group rounded-2xl`}>
+        <button  className={`hover:animate-pulse font-semibold  ${theme === 'light' ? 'text-white' : 'text-green-500'} `}>Download Resume</button>
         <MdOutlineFileDownload  className={`font-bold group-hover:animate-bounce text-xl ${theme === 'light' ? 'text-white ' : 'text-green-500'}`}/>
         </div>
         <div className="border-green-500 border-2 ring-1 hover:text-white  text-green-500 rounded-[50%] p-3  hover:bg-green-500 dark:ring-white hover:animate-pulse">
@@ -72,9 +92,7 @@ const Banner = () => {
         </div>
     </div>
        </div>
-       <div  className="  p-2">
-        <img  className={`w-[800px] p-1 border-4 ${theme === 'light' ? 'border-green-600 ' : 'border-white'}  rounded-[50%] h-[280px] `} src="https://i.postimg.cc/TPbJXW6V/Remove-background-project.png" alt="" />
-       </div>
+     
         </div>
     );
 };

@@ -6,6 +6,7 @@ import MySkill from './Components/Skill/MySkill';
 
 import Projects from './Components/projects/Projects';
 import About from './Components/About/About';
+import ScrollToTopButton from './Components/ScrollToTopButton';
 
 
 
@@ -16,7 +17,7 @@ const Root = () => {
             <Banner></Banner>
             <Achivement></Achivement>
             <MySkill></MySkill>
-            
+            <ScrollToTopButton></ScrollToTopButton>
           
           
         </div>

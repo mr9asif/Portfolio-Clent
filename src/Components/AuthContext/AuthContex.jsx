@@ -1,26 +1,26 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
-export const AuthContext = createContext(null); // Define the context using createContext
+export const AuthContext = createContext();
 
-const AuthContextProvider = ({ children }) => {
-    const [theme, setTheme] = useState('light');
+const AuthProvider = ({ children }) => {
+  const [theme, setTheme] = useState('blue');
 
-    useEffect(() => {
-        const localStorageTheme = localStorage.getItem('theme') || 'light';
-        setTheme(localStorageTheme);
-        document.querySelector('html').setAttribute('data-theme', localStorageTheme);
-    }, []);
+  useEffect(() => {
+    const localStorageTheme = localStorage.getItem('theme') || 'blue';
+    setTheme(localStorageTheme);
+    document.querySelector('html').setAttribute('data-theme', localStorageTheme);
+  }, []);
 
-    useEffect(() => {
-        localStorage.setItem('theme', theme);
-        document.querySelector('html').setAttribute('data-theme', theme);
-    }, [theme]);
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    document.querySelector('html').setAttribute('data-theme', theme);
+  }, [theme]);
 
-    return (
-        <AuthContext.Provider value={{ theme, setTheme }}>
-            {children}
-        </AuthContext.Provider>
-    );
+  return (
+    <AuthContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
 
-export default AuthContextProvider;
+export default AuthProvider;
